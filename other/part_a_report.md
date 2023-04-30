@@ -26,7 +26,7 @@
 + The _Tester class **contains an array of 5 Advisor objects** with **each advisor containing three Student objects** and **each student has at least three courses** from different semesters.
 + The Advisor class, Student class, and Courses class have several attributes (such as first name, academic id) and **each have their own accessor and mutator methods** (setters and getters), and must have their own display method which displays all the values of the attributes.
   + validation checks were added to the Advisor class set methods and will throw exception(s) if standards fail, however, not all exceptions/validations are fully implemented or created yet
-+ contains **javadocs** folder which document all classes contained in the final project 
++ contains **javadocs** folder which document all classes contained in the final project. To access as a web page open index-all.html in final_project> programs > src > javadoc > index-all.html
 + JavaFX-based GUI: Uses both the Java Swing and Java AWT Library to construct a working GUI which works together to provide user entry services and displayal purposes. 
   + Java AWT utilized for larger interactive components and for design reasons: main menu, add advisor frame, exit or return to main menu frame, and display advisor frame are all based on the Java AWT library. 
   + Java Swing utilized for smaller interactive components like for the submenu option to edit one of 
