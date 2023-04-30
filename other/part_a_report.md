@@ -37,4 +37,4 @@ eleven attributes of an advisor based on advisor id, the frontend design was cho
   
   
 ## Bugs that need to be fixed
-+ clicking on the add another advisor button and then clicking the return to main menu button without fully adding an advisor. Likely to only run into this bug if you decided mid-way into entering advisor data that you want to leave. 
++ clicking on the add another advisor button and then clicking the return to main menu button without fully adding an advisor leaves the buttons inactive. Likely to run into this bug if you decided mid-way into entering advisor data that you want to leave. 
