@@ -1,4 +1,4 @@
-# Part A Report 
+# Final Project Report
 
 ## How to Use:
 + Simply run **_Tester2.java** located in: final_project > prorams > src > _Tester2 
