@@ -1,4 +1,12 @@
 # Part A Report 
+
+## How to Use:
++ 1. run _Tester2 located in: final_project > prorams > src > _Tester2 
+  + _Tester2: the backBone of all the programs, contributing primary backend services which connect all frontend frames 
+  + FRONTEND: each of the frames (menu frame, returnMenuFrame, addAdvisorFrame) are each classes for modularity
+  + BACKEND: _Tester2, Advisor, Student, Courses classes 
+  
+  
 ## User Requirements:
 + **user interface** in the form of a menu that allows a **set of commands** (edit, delete, add, etc) to alter an Advisor object, which is provided in the _Tester class.
 + The _Tester class **must contain an array of 5 Advisor objects**, with **each advisor containing three Student objects** and **each student must have at least three courses** from different semesters.
