@@ -1,7 +1,7 @@
 # Part A Report 
 
 ## How to Use:
-+ Simply **Run _Tester2** located in: final_project > prorams > src > _Tester2 
++ Simply run **_Tester2.java** located in: final_project > prorams > src > _Tester2 
   + _Tester2: the backBone of all the programs, contributing primary backend services which connect all frontend frames 
   + FRONTEND: each of the frames (menu frame, returnMenuFrame, addAdvisorFrame) are each classes for modularity
   + BACKEND: _Tester2, Advisor, Student, Courses classes 
