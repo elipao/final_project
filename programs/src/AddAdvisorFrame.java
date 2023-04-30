@@ -8,6 +8,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * AddAdvisorFrame class provides a JAVA AWT frame with interactive components to enter the
+ * attributes of a new advisor. The attributes are then written to a new file.
+ */
 public class AddAdvisorFrame extends JFrame implements ActionListener {
     private JPanel emailPane1, emailPane2, adviseePane, addAdvisorPane;
     private JLabel pageL, firstL, midL, lastL, idL, titleL, departmentL, officeLocL, phoneL, emailL,
@@ -132,14 +136,14 @@ public class AddAdvisorFrame extends JFrame implements ActionListener {
         advisorP.add(returnMainB);
         advisorP.add(addAnotherB);
 
-
-
         this.add(advisorP);
         pack();
         this.setVisible(true);
     }
 
-
+    /**
+     * writes all the user entries to a .txt file
+     */
     public void writeToFile(){
 
         //write to a file
@@ -164,6 +168,12 @@ public class AddAdvisorFrame extends JFrame implements ActionListener {
 
     }
 
+    /**
+     * validates the entries of the user by calling the Advisor set methods which contain validators.
+     * The Advisor set methods will throw IllegalArgumentExceptions, and this method checks for them in a
+     * try-catch.
+     * @return boolean where false indicates invalid entries, and true indicates valid entries
+     */
     public boolean validateEntries(){
         //[1] makes instance of Advisor, tests to see whether it gives any errors during setting the values
         //[2] if it makes any errors, then it will set the text of the errors message to show all input errors
@@ -209,11 +219,20 @@ public class AddAdvisorFrame extends JFrame implements ActionListener {
     }
 
 
+    /** Will return the frame selection, where null indicates that no button has been pressed.
+     * Purpose of seemingly useless function is to interact with backend in a timely fashion so that the backend can
+     * wait for the user to enter the selection rather than instantaneously calling a bunch of methods at once or in
+     * other words allows the use of multithreading.
+     * @return frame selection which is an attribute of the parent class object
+     */
     public String frameSelection(){
         return this.aFrameSelection;
     }
 
 
+    /**
+     * clears all text fields.
+     */
     public void clearTextFields(){
         firstT.setText("");
         midT.setText("");

@@ -6,6 +6,9 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Displays all attributes of an advisor using JAVA AWT
+ */
 public class DisplayFrame extends JFrame implements ActionListener {
     private JPanel emailPane, adviseePane, addAdvisorPane;
     private JLabel pageL, firstL, midL, lastL, idL, titleL, departmentL, officeLocL, phoneL, emailL,
@@ -115,11 +118,22 @@ public class DisplayFrame extends JFrame implements ActionListener {
         this.setVisible(true);
     }
 
+    /** Will return the frame selection, where null indicates that no button has been pressed.
+     * Purpose of seemingly useless function is to interact with backend in a timely fashion so that the backend can
+     * wait for the user to enter the selection rather than instantaneously calling a bunch of methods at once or in
+     * other words allows the use of multithreading.
+     * @return frame selection which is an attribute of the parent class object
+     */
     public String returnSelection(){
         return dFrameSelection;
     }
 
 
+    /**
+     * Given an object of the Advisor class to be displayed, this function will set the labels for
+     * each of the attributes of the advisor to the given object's attributes.
+     * @param advisor the advisor to be displayed
+     */
     public void setLabels(Advisor advisor){
         errorsL.setText("Errors: None");
         firstL1.setText(advisor.getFirstName());

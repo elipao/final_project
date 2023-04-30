@@ -8,10 +8,12 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * The _Tester class is designed to test the Advisor, Student, and Courses class.
+ * The _Tester2 class is designed to test the Advisor, Student, and Courses class but most importantly asks as the backbone
+ * connecting the frontend and backend together. If I had more time, it would be called the "backbone" or something more related to the
+ * backend.
  * Creates an array of 5 advisors which has their basic information, and each advisor contains 3
  * students where each student has at least one course each semester.
- * Contains a menu which allows the user to access and mutate values in a list of advisors.
+ * Words with a frontend GUI consisting of Java swing and Java AWT components.
  */
 
 public class _Tester2 {
@@ -113,6 +115,10 @@ public class _Tester2 {
         }
     }
 
+    /**
+     * Reads .txt file sent from AddAdvisorFrame class containing all attributes of new advisor and sets
+     * the new advisor attributes to a new advisor contained in an advisor array.
+     */
     public void burnFileToAdvisor(){
         File file = new File("dataFile.txt"); // Replace file.txt with your file name
         try {
@@ -171,16 +177,14 @@ public class _Tester2 {
         }
     }
 
-    //temporarily making waitUser() a method for tester class, however should be a super method implemented
-    //in all of the frame classes (menu frame, add advisor frame,...)
-    public void waitUser(){
-        try{
-            Thread.sleep(100);
-        } catch(InterruptedException e){
-            e.printStackTrace();
-        }
-    }
 
+    /**
+     * Creates a pop-up frame prompting user to exit or return to main menu.
+     * Waits for the user to make a selection first before returning to main menu.
+     *
+     * @param tester a reference of _Tester2, accidental flaw that start way back
+     * at beginning of project unfortunately could not get rid of it.
+     */
     public void runReturnMenuFrame(_Tester2 tester){
         ReturnMainMenuFrame mmFrameA = new ReturnMainMenuFrame();
         while(mmFrameA.returnSelection()==null){
@@ -193,6 +197,12 @@ public class _Tester2 {
         menuDisplay(tester);
     }
 
+    /**
+     * Presents a pop-up of a frame showing a simple short message and an Ok button
+     * Waits for the user to press the ok button to hide the frame.
+     *
+     * @param entry the message that will be displayed in the frame
+     */
     public void runSimpleMessage(String entry){
         SimpleMessage sFrame = new SimpleMessage();
         sFrame.setMessage(entry);
@@ -206,6 +216,11 @@ public class _Tester2 {
     }
 
 
+    /**
+     * Brings all classes together to display the GUI and call methods to manipulate the frontend and backend data.
+     * @param tester a reference of _Tester2, accidental flaw that start way back
+     *      * at beginning of project unfortunately could not get rid of it.
+     */
     public static void menuDisplay(_Tester2 tester){
 
         MenuFrame menuFrame = new MenuFrame();

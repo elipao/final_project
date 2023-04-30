@@ -4,6 +4,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * For non JAVA AWT based components, this JAVA AWT based class displays a pop-up that will ask the user to
+ * exit or return to the main menu.
+ */
 
 public class ReturnMainMenuFrame extends JFrame implements ActionListener{
 
@@ -54,6 +58,12 @@ public class ReturnMainMenuFrame extends JFrame implements ActionListener{
         }
     }
 
+    /** Will return the frame selection, where null indicates that no button has been pressed.
+     * Purpose of seemingly useless function is to interact with backend in a timely fashion so that the backend can
+     * wait for the user to enter the selection rather than instantaneously calling a bunch of methods at once or in
+     * other words allows the use of multithreading.
+     * @return frame selection which is an attribute of the parent class object
+     */
     public String returnSelection(){
         return userSelection;
     }
