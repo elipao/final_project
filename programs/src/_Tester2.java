@@ -193,6 +193,18 @@ public class _Tester2 {
         menuDisplay(tester);
     }
 
+    public void runSimpleMessage(String entry){
+        SimpleMessage sFrame = new SimpleMessage();
+        sFrame.setMessage(entry);
+        while(sFrame.returnSelection()==null){
+            try{
+                Thread.sleep(100);
+            } catch(InterruptedException e){
+                e.printStackTrace();
+            }
+        }
+    }
+
 
     public static void menuDisplay(_Tester2 tester){
 
@@ -351,55 +363,62 @@ public class _Tester2 {
             case "e":
                 String search_department = JOptionPane.showInputDialog(null, "Enter the department to find the advisors for that department: ");
 
+                String e_entry = "";
                 boolean found_advisor_in_department = false;
                 for(int i = 0; i < Advisor.numAdvisors; i++){
                     if(search_department.equals(tester.advisors[i].getDepartment())){
                         found_advisor_in_department = true;
-                        System.out.println(tester.advisors[i].getFirstName()+ " " + tester.advisors[i].getMiddleName() + " " + tester.advisors[i].getLastName());
+                        e_entry += tester.advisors[i].getFirstName()+ " " + tester.advisors[i].getMiddleName() + " " + tester.advisors[i].getLastName() + ", \n";
                     }
                 }
                 if(found_advisor_in_department == true){
-                    System.out.println("Belong(s) to the department of " + search_department);
+                    tester.runSimpleMessage(e_entry + "Belong(s) to the department of " + search_department + "\n");
                 }
                 else{
-                    System.out.println("No advisors from the department of " + search_department + " could be found");
+                    tester.runSimpleMessage("No advisors from the department of " + search_department + " could be found\n");
                 }
                 tester.runReturnMenuFrame(tester);
                 break;
             case "f":
                 String search_lastN = JOptionPane.showInputDialog(null, "Enter the advisor's last name to find the advisor: ");
 
+                String f_entry = "";
                 boolean found_advisor_lastname = false;
                 for(int i = 0; i < Advisor.numAdvisors; i++){
                     if(search_lastN.equals(tester.advisors[i].getLastName())){
                         found_advisor_lastname = true;
-                        System.out.println("The advisor with last name " + search_lastN + " is: " + tester.advisors[i].getFirstName()+ " " + tester.advisors[i].getMiddleName() + " " + tester.advisors[i].getLastName());
+                        f_entry += "The advisor with last name " + search_lastN + " is: " + tester.advisors[i].getFirstName()+ " " + tester.advisors[i].getMiddleName() + " " + tester.advisors[i].getLastName();
                     }
                 }
-                if(!found_advisor_lastname)
-                    System.out.println("No advisors with the last name " + search_lastN + " could be found");
+                if(!found_advisor_lastname){
+                    f_entry += "No advisors with the last name " + search_lastN + " could be found";
+                }
+                tester.runSimpleMessage(f_entry);
                 tester.runReturnMenuFrame(tester);
                 break;
             case "g":
                 String search_title = JOptionPane.showInputDialog(null, "Enter the title to find the advisors with that title: ");
 
+                String g_entry = "";
                 boolean found_advisor_title = false;
                 for(int i = 0; i < Advisor.numAdvisors; i++){
                     if(search_title.equals(tester.advisors[i].getTitle())){
                         found_advisor_title = true;
-                        System.out.println(tester.advisors[i].getFirstName()+ " " + tester.advisors[i].getMiddleName() + " " + tester.advisors[i].getLastName());
+                        g_entry += tester.advisors[i].getFirstName()+ " " + tester.advisors[i].getMiddleName() + " " + tester.advisors[i].getLastName() + ", ";
                     }
                 }
                 if(found_advisor_title == true){
-                    System.out.println("Has(or have) the title of " + search_title);
+                    g_entry += "Has(or have) the title of " + search_title;
                 }
                 else{
-                    System.out.println("No advisors with the title " + search_title + "could be found");
+                    g_entry = "No advisors with the title " + search_title + " could be found";
+
                 }
+                tester.runSimpleMessage(g_entry);
                 tester.runReturnMenuFrame(tester);
                 break;
             default:
-                throw new IllegalArgumentException("enter a letter from the menu provided dumby");
+                throw new IllegalArgumentException("not sure what you did, but it's wrong.");
         }
 
     }
